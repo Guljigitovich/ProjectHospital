@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign</title>
+</head>
+<body>
+<div style="margin-top: 120px" class="d-flex justify-content-center">
+    <form class="p-5 bg-light" th:action="@{/doctors/{hospitalId}/{doctorId}/saveAssignDepartment(hospitalId=${hospitalId}, doctorId=${doctorId})}"
+          th:object="${doctor}" th:method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="doc" class="date-label">Department:</label>
+            <select style="margin-left: 40px" id="doc" th:field="*{departmentId}" class="date-input">
+                <option value="">select</option>
+                <option class="date-input" th:each="department : ${departments}" th:value="${department.getId()}"
+                        th:text="${department.getName()}"></option>
+            </select>
+<!--            <p style="color: red" th:if="${#fields.hasErrors('doctorId')}" th:errors="*{doctorId}">Doctor error</p>-->
+            <div>
+                <br>
+                <input type="submit" value="submit" class="btn btn-primary btn-lg">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

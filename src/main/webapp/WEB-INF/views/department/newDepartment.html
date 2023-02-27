@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Department</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/departments/{hospitalId}/saveDepartment(hospitalId=${hospitalId})}" th:object="${department}">
+    <div>
+        <label for="name">Department name</label>
+        <input type="text" th:field="*{name}" id = "name">
+    </div>
+
+
+    <div>
+        <label for="image">Department image</label>
+        <input type="text" th:field="*{image}" id = "image">
+    </div>
+    <button type="submit">Save Department</button>
+</form>
+
+</body>
+</html>
